@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add a new student</h2>
+
+<form method="post" action="/student/new_form_submission" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" class="form-control" name= "studentName" id="studentName" placeholder="Makara">
+    </div>
+    <div class="form-group">
+        <label>Select the Class</label>
+        <select class="form-control" name="classOption">
+            <option selected>Select a class for the student</option>
+            {% for level in levels %}
+            <option id="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <p>Gender:</p>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input onclick="check_male()" type="radio" class="custom-control-input" id="male" name="male">
+            <label class="custom-control-label" for="male">Male</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input onclick="check_female()" type="radio" class="custom-control-input" id="female" name="female">
+            <label class="custom-control-label" for="female">Female</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-2 col-form-label">Birth Date</label>
+        <div class="col-10">
+            <input class="form-control" type="date" value="2011-08-19" id="birthDate" name="birthdate">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Select the Grade</label>
+        <select class="form-control" name="gradeOption" id="gradeOption">
+            <option selected>Select the grade</option>
+            <option id="year1">Year 1</option>
+            <option id="year2">Year 2</option>
+            <option id="year3">Year 3</option>
+            <option id="year4">Year 4</option>
+            <option id="year5">Year 5</option>
+            <option id="year6">Year 6</option>
+            <option id="year7">Year 7</option>
+            <option id="year8">Year 8</option>
+            <option id="year9">Year 9</option>
+            <option id="year10">Year 10</option>
+            <option id="year11">Year 11</option>
+            <option id="year12">Year 12</option>
+            <option id="other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Select the public school</label>
+        <select class="form-control" name="publicSchool" id="publicSchool">
+            <option selected>Select the public school</option>
+            <option id="phumsteung_primary">Phum Steung Primary School</option>
+            <option id="tapuok_primary">Tapuok Primary School</option>
+            <option id="ruluos_primary">Roluos Primary School</option>
+            <option id="bakong_high">Bakong High School</option>
+            <option id="koktrach_primary">Kok Trach Primary School</option>
+            <option id="roluos_secundary">Roluos Secundary School</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Lives in</label>
+        <input type="text" class="form-control" id="livesIn" name="livesIn" placeholder="Bakong">
+    </div>
+    <div class="form-group">
+        <label>Siblings</label>
+        <input type="text" class="form-control" id="siblings" name="siblings" placeholder="2 sisters (8y, 17y)">
+    </div>
+    <div class="form-group">
+        <label>Student Notes:</label>
+        <textarea class="form-control" id="studentNotes" name="studentNotes" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <p>Student picture:</p>
+        <div class="custom-file mb-3">
+            <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
+            <label class="custom-file-label" for="pictureFile">Upload a picture</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="reset" value="Reset">
+    </div>
+</form>
+
+{% endblock %}

@@ -6,7 +6,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('new', views.newstudent),
+    path('new', views.new_student),
     path('new_form_submission', views.new_form_submission),
-    path('information', views.information)
+    path('information', views.information),
+    path('successful', views.successful),
+    path('student_info', views.student_info)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

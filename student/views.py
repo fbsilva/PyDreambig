@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Student, Levels
+from .models import Student, Levels, School, Grade
 from django.core.files.storage import FileSystemStorage
+
 
 # Create your views here.
 def index(request):
@@ -16,9 +17,11 @@ def index(request):
     return render(request, 'index.html', {'students': students, 'levels': levels})
 
 
-def newstudent(request):
+def new_student(request):
     levels = Levels.objects.all()
-    return render(request, 'newstudent.html', {'levels': levels})
+    schools = School.objects.all()
+    grades = Grade.objects.all()
+    return render(request, 'newStudent.html', {'levels': levels, 'grades': grades, 'schools': schools})
 
 
 def new_form_submission(request):
@@ -42,16 +45,35 @@ def new_form_submission(request):
     else:
         gender = 'Unknown'
 
+    #TODO change the name of the file imported to a guid to be sure that picture's name never repeats
+
     fs = FileSystemStorage()
     fs.save(picture_path.name, picture_path)
 
-    student_data = Student(name=student_name, level_id=2, birthdate=birth_date, livesin=lives_in,
+    student_data = Student(name=student_name, level_id=class_option, birthdate=birth_date, livesin=lives_in,
                            school=public_school, grade=grade_option, siblings=siblings, picture=picture_path.name,
                            notes=student_notes)
     student_data.save()
 
-    return render(request, 'newstudent.html', {'levels': levels})
+    return render(request, 'successful.html', {'levels': levels})
 
 
 def information(request):
     return HttpResponse('Information')
+
+
+def successful(request):
+    levels = Levels.objects.all()
+    return render(request, 'successful.html', {'levels': levels})
+
+
+def student_info(request):
+    levels = Levels.objects.all()
+    student = Student.objects.get(id=1)
+
+    levels_aux = Levels.objects.get(id=student.level_id)
+
+    student.level_class = levels_aux.level
+    student.level_period = levels_aux.period
+
+    return render(request, 'studentInfo.html', {'levels': levels, 'student': student})

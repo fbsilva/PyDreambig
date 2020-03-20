@@ -3,16 +3,16 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/studentStyle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link href="{% static 'css/studentStyle.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-grid.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-reboot.min.css' %}" rel="stylesheet">
 
 
 </head>
@@ -23,7 +23,7 @@
         <div id="header">
             {% load static %}
             <a href="/student/">
-                <img src="{% static 'images/dreambig_logo.png' %}" alt="Dream Big Cambodia "/>
+                <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/>
         </div>
         <div id="links">
             {% for level in levels %}
@@ -56,6 +56,23 @@ function check_male(){
 function check_female(){
     document.getElementById("male").checked = false;
 }
+
+var seconds = 5;
+
+function countdown() {
+    seconds = seconds - 1;
+    if (seconds < 0) {
+        window.location = "http://127.0.0.1:8000/student/";
+    } else {
+        // Update remaining seconds
+        document.getElementById("countdown").innerHTML = seconds;
+        // Count down using javascript
+        window.setTimeout("countdown()", 1000);
+    }
+}
+
+countdown();
+
 </script>
 </body>
 </html>

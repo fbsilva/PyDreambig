@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{student.name}}</h2>
+
+<form method="get" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Student Name / ឈ្មោះ​របស់​និស្សិត</label>
+        <input type="text" class="form-control" name= "studentName" id="studentName" value="{{student.name}}">
+    </div>
+    <div class="form-group">
+        <label>Select the Class</label>
+        <select class="form-control" name="classOption">
+            {% for level in levels %}
+                {% if level.id == student.level_id %}
+                    <option selected id="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
+                {% else %}
+                    <option id="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <p>Gender:</p>
+        <div class="custom-control custom-radio custom-control-inline">
+            {% if student.gender == 'Male' %}
+                <input onclick="check_male()" type="radio" class="custom-control-input" id="male" name="male" checked>
+            {% else %}
+                <input onclick="check_male()" type="radio" class="custom-control-input" id="male" name="male">
+            {% endif %}
+            <label class="custom-control-label" for="male">Male</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            {% if student.gender == 'Female' %}
+                <input onclick="check_female()" type="radio" class="custom-control-input" id="female" name="female" checked>
+            {% else %}
+                <input onclick="check_female()" type="radio" class="custom-control-input" id="female" name="female">
+            {% endif %}
+            <label class="custom-control-label" for="female">Female</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-2 col-form-label">Birth Date</label>
+        <div class="col-10">
+            <input class="form-control" type="date" id="birthDate" name="birthdate" value="{{student.birthdate}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Select the Grade</label>
+        <select class="form-control" name="gradeOption" id="gradeOption">
+            <option id="year1" {% if student.grade == 3 %} selected {% endif %}>Year 1</option>
+            <option id="year2" {% if student.grade == 4 %} selected {% endif %}>Year 2</option>
+            <option id="year3" {% if student.grade == 1 %} selected {% endif %}>Year 3</option>
+            <option id="year4" {% if student.grade == 1 %} selected {% endif %}>Year 4</option>
+            <option id="year5" {% if student.grade == 1 %} selected {% endif %}>Year 5</option>
+            <option id="year6" {% if student.grade == 1 %} selected {% endif %}>Year 6</option>
+            <option id="year7" {% if student.grade == 1 %} selected {% endif %}>Year 7</option>
+            <option id="year8" {% if student.grade == 1 %} selected {% endif %}>Year 8</option>
+            <option id="year9" {% if student.grade == 1 %} selected {% endif %}>Year 9</option>
+            <option id="year10 {% if student.grade == 1 %} selected {% endif %}">Year 10</option>
+            <option id="year11 {% if student.grade == 1 %} selected {% endif %}">Year 11</option>
+            <option id="year12 {% if student.grade == 1 %} selected {% endif %}">Year 12</option>
+            <option id="other" {% if student.grade == 1 %} selected {% endif %}>Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Select the public school</label>
+        <select class="form-control" name="publicSchool" id="publicSchool">
+            <option selected>{{student.school}}</option>
+            <option id="phumsteung_primary">Phum Steung Primary School</option>
+            <option id="tapuok_primary">Tapuok Primary School</option>
+            <option id="ruluos_primary">Roluos Primary School</option>
+            <option id="bakong_high">Bakong High School</option>
+            <option id="koktrach_primary">Kok Trach Primary School</option>
+            <option id="roluos_secundary">Roluos Secundary School</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Lives in</label>
+        <input type="text" class="form-control" id="livesIn" name="livesIn" placeholder="Bakong" value="{{student.livesin}}">
+    </div>
+    <div class="form-group">
+        <label>Siblings</label>
+        <input type="text" class="form-control" id="siblings" name="siblings" placeholder="2 sisters (8y, 17y)" value="{{student.siblings}}">
+    </div>
+    <div class="form-group">
+        <label>Student Notes:</label>
+        <textarea class="form-control" id="studentNotes" name="studentNotes" rows="3" value="{{student.notes}}"></textarea>
+    </div>
+    <div class="form-group">
+        {% load static %}
+        <img alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
+        <p>Student picture:</p>
+        <div class="custom-file mb-3">
+            <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
+            <label class="custom-file-label" for="pictureFile">Upload a picture</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="reset" value="Reset">
+    </div>
+</form>
+
+{% endblock %}

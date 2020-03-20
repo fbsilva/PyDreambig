@@ -7,7 +7,7 @@
 <form method="post" action="/student/new_form_submission" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
-        <label>Student Name</label>
+        <label>Student Name / ឈ្មោះ​របស់​និស្សិត</label>
         <input type="text" class="form-control" name= "studentName" id="studentName" placeholder="Makara">
     </div>
     <div class="form-group">
@@ -15,7 +15,7 @@
         <select class="form-control" name="classOption">
             <option selected>Select a class for the student</option>
             {% for level in levels %}
-            <option id="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
+            <option value="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
             {% endfor %}
         </select>
     </div>
@@ -41,31 +41,18 @@
         <label>Select the Grade</label>
         <select class="form-control" name="gradeOption" id="gradeOption">
             <option selected>Select the grade</option>
-            <option id="year1">Year 1</option>
-            <option id="year2">Year 2</option>
-            <option id="year3">Year 3</option>
-            <option id="year4">Year 4</option>
-            <option id="year5">Year 5</option>
-            <option id="year6">Year 6</option>
-            <option id="year7">Year 7</option>
-            <option id="year8">Year 8</option>
-            <option id="year9">Year 9</option>
-            <option id="year10">Year 10</option>
-            <option id="year11">Year 11</option>
-            <option id="year12">Year 12</option>
-            <option id="other">Other</option>
+            {% for grade in grades %}
+                <option value="{{grade.id}}">{{grade.name}}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label>Select the public school</label>
         <select class="form-control" name="publicSchool" id="publicSchool">
             <option selected>Select the public school</option>
-            <option id="phumsteung_primary">Phum Steung Primary School</option>
-            <option id="tapuok_primary">Tapuok Primary School</option>
-            <option id="ruluos_primary">Roluos Primary School</option>
-            <option id="bakong_high">Bakong High School</option>
-            <option id="koktrach_primary">Kok Trach Primary School</option>
-            <option id="roluos_secundary">Roluos Secundary School</option>
+            {% for school in schools %}
+                <option value="{{school.id}}">{{school.name}}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="form-group">

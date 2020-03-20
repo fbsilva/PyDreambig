@@ -15,21 +15,20 @@
             <div class="card-body">
                 <a class="btn btn-primary" href="/student/new">New Student</a>
             </div>
-
         </div>
     </div>
-{% for student in students %}
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            {% load static %}
-            <img alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
-            <div class="card-body">
-                <h5 class="card-title">{{student.name}}</h5>
-                <p class="card-text">{{student.birthdate}}</p>
-                <a class="btn btn-primary" href="#">Student File</a>
+    {% for student in students %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                {% load static %}
+                <img alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{student.name}}</h5>
+                    <p class="card-text">{{student.birthdate}}</p>
+                    <a class="btn btn-primary" href="/student/student_info">Student File</a>
+                </div>
             </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}

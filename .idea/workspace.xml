@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e76b224-da1e-40a4-a76e-2effb351eaa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/student/templates/studentInfo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/templates/successful.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/templates/newstudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/newStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/studentInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/studentInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
     </list>
@@ -42,6 +38,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -71,6 +68,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1584691377431" />
+    <state x="184" y="11" key="SettingsEditor" timestamp="1584706993011">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584706993011" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1584605623114">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

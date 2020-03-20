@@ -67,13 +67,11 @@ def successful(request):
     return render(request, 'successful.html', {'levels': levels})
 
 
-def student_info(request):
+def student_info(request, student_id):
+    context = {student_id: student_id}
     levels = Levels.objects.all()
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=student_id)
+    schools = School.objects.all()
+    grades = Grade.objects.all()
 
-    levels_aux = Levels.objects.get(id=student.level_id)
-
-    student.level_class = levels_aux.level
-    student.level_period = levels_aux.period
-
-    return render(request, 'studentInfo.html', {'levels': levels, 'student': student})
+    return render(request, 'studentInfo.html', {'levels': levels, 'student': student, 'grades': grades, 'schools': schools}, context)

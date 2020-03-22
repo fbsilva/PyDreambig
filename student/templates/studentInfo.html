@@ -4,10 +4,11 @@
 
 <h2>{{student.name}}</h2>
 
-<form method="get" enctype="multipart/form-data">
+<form method="post" action="/student/edit_student" type="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <label>Student Name / ឈ្មោះ​របស់​និស្សិត</label>
+        <input type="hidden" class="form-control" name= "studentId" id="studentId" value="{{student.id}}" readonly >
         <input type="text" class="form-control" name= "studentName" id="studentName" value="{{student.name}}">
     </div>
     <div class="form-group">
@@ -44,9 +45,7 @@
     </div>
     <div class="form-group">
         <label class="col-2 col-form-label">Birth Date</label>
-        <div class="col-10">
-            <input class="form-control" type="date" id="birthDate" name="birthdate" value="{{student.birthdate}}">
-        </div>
+        <input class="form-control" type="date" id="birthDate" name="birthdate" value="{{student.birthdate}}">
     </div>
     <div class="form-group">
         <label>Select the Grade</label>
@@ -85,17 +84,25 @@
         <textarea class="form-control" id="studentNotes" name="studentNotes" rows="3">{{student.notes}}</textarea>
     </div>
     <div class="form-group">
+        <p>Student picture:</p>
         {% load static %}
         <img alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
-        <p>Student picture:</p>
         <div class="custom-file mb-3">
             <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
-            <label class="custom-file-label" for="pictureFile">Upload a picture</label>
+            <label class="custom-file-label" for="pictureFile">Upload a new picture</label>
         </div>
     </div>
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Submit">
-        <input class="btn btn-primary" type="reset" value="Reset">
+        <label>Created By</label>
+        <input type="text" class="form-control" id="createdBy" name="createdBy" placeholder="Name of the volunteer who is creating this student" value="{{student.createdBy}}" readonly>
+    </div>
+    <div class="form-group">
+        <label>Created By</label>
+        <input type="text" class="form-control" id="modifiedBy" name="modifiedBy" placeholder="Name of the volunteer who is modifying this student" >
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary"  type="button" value="Go Back" onclick="history.back(-1)" />
+        <input class="btn btn-primary" type="submit" value="Save Changes">
     </div>
 </form>
 

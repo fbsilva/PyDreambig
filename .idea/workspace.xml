@@ -4,8 +4,38 @@
     <list default="true" id="8e76b224-da1e-40a4-a76e-2effb351eaa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/css/studentStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/studentStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/media/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/media/Annotation 2020-03-05 115256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/media/Annotation 2020-03-05 115256_EOHJsO2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/media/Annotation 2020-03-05 115256_SIGfwKW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/addNewStudent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/images/dreambig_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/images/question.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/images/settings.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/student/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/newStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/newStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/scripts/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/scripts/jquery-3.2.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/scripts/popper.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/student/templates/studentInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/studentInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/studentStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/successful.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/successful.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
     </list>
@@ -72,17 +102,17 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584706993011" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1584605623114">
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1584863356042">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1584605623114" />
-    <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1584615402276">
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1584863356042" />
+    <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1584880899499">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1584615402276" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1584065416932">
+    <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1584880899499" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1584873684969">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1584065416932" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1584873684969" />
   </component>
 </project>

@@ -4,7 +4,7 @@
 
 <h2>Add a new student</h2>
 
-<form method="post" action="/student/new_form_submission" enctype="multipart/form-data">
+<form method="post" action="/student/add" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <label>Student Name / ឈ្មោះ​របស់​និស្សិត</label>
@@ -33,9 +33,7 @@
     </div>
     <div class="form-group">
         <label class="col-2 col-form-label">Birth Date</label>
-        <div class="col-10">
-            <input class="form-control" type="date" value="2011-08-19" id="birthDate" name="birthdate">
-        </div>
+        <input class="form-control" type="date" value="2011-08-19" id="birthDate" name="birthdate">
     </div>
     <div class="form-group">
         <label>Select the Grade</label>
@@ -73,6 +71,10 @@
             <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
             <label class="custom-file-label" for="pictureFile">Upload a picture</label>
         </div>
+    </div>
+    <div class="form-group">
+        <label>Created By</label>
+        <input type="text" class="form-control" id="createdBy" name="createdBy" placeholder="Name of the volunteer who is creating this student">
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">

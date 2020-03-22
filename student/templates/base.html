@@ -26,7 +26,7 @@
                 <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/>
         </div>
         <div id="links">
-            {% for level in levels %}
+            {% for level in levels_header %}
             <a href="url">{{level.level}} - {{level.period}}</a>
             {% endfor %}
         </div>
@@ -43,7 +43,7 @@
 <script src="{% static 'scripts/popper.js' %}"></script>
 <script src="{% static 'scripts/bootstrap.js' %}"></script>
 <script>
-// Add the following code if you want the name of the file appear on select
+
 $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -68,11 +68,8 @@ function countdown() {
         document.getElementById("countdown").innerHTML = seconds;
         // Count down using javascript
         window.setTimeout("countdown()", 1000);
-    }
-}
-
+    } }
 countdown();
-
 </script>
 </body>
 </html>

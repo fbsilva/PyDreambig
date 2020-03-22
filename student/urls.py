@@ -7,8 +7,9 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('new', views.new_student),
-    path('new_form_submission', views.new_form_submission),
+    path('add', views.add_student),
+    path('edit_student', views.edit_student),
     path('information', views.information),
     path('successful', views.successful),
-    path('student_info/<int:student_id>/', views.student_info, name='student_info')
+    path('edit/<int:student_id>/', views.student_info, name='edit')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

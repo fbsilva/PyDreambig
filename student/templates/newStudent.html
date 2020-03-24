@@ -14,7 +14,7 @@
     <div class="form-group">
         <label>Select the Class</label>
         <select class="form-control" name="classOption" required >
-            <option selected>Select a class for the student</option>
+            <option value="1" selected>Select a class for the student</option>
             {% for level in levels %}
             <option value="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
             {% endfor %}
@@ -39,7 +39,7 @@
     <div class="form-group">
         <label>Select the Grade</label>
         <select class="form-control" name="gradeOption" id="gradeOption">
-            <option selected>Select the grade</option>
+            <option value="13" selected>Select the grade</option>
             {% for grade in grades %}
                 <option value="{{grade.id}}">{{grade.name}}</option>
             {% endfor %}
@@ -48,7 +48,7 @@
     <div class="form-group">
         <label>Select the public school</label>
         <select class="form-control" name="publicSchool" id="publicSchool">
-            <option selected>Select the public school</option>
+            <option value="7" selected>Select the public school</option>
             {% for school in schools %}
                 <option value="{{school.id}}">{{school.name}}</option>
             {% endfor %}
@@ -69,7 +69,7 @@
     <div class="form-group">
         <p>Student picture:</p>
         <div class="custom-file mb-3">
-            <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
+            <input type="file" class="custom-file-input" id="pictureFile"  name="pictureFile">
             <label class="custom-file-label" for="pictureFile" >Upload a picture</label>
         </div>
     </div>

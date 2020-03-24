@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <title>Dream Big Cambodia</title>
     {% load static %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/png"/>
     <link href="{% static 'css/studentStyle.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -18,63 +18,64 @@
 
 </head>
 <body>
-
-<div id="wrapperHeader">
-    <div>
-        <div id="header">
-            {% load static %}
-            <a href="/student/">
-                <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/>
-        </div>
-        <div id="links">
-            {% for level in levels_header %}
-            <a href="/student/student_class/{{level.id}}">{{level.level}} - {{level.period}}</a>
-            {% endfor %}
+    <div id="wrapperHeader">
+        <div>
+            <div id="header">
+                {% load static %}
+                <a href="/student/">
+                    <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/>
+            </div>
+            <div id="links">
+                {% for level in levels_header %}
+                <a href="/student/student_class/{{level.id}}">{{level.level}} - {{level.period}}</a>
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
-<div id="info">
-    {% block content %}
+    <div id="info">
+        {% block content %}
 
-    {% endblock %}
-</div>
-<div class="footer-copyright text-center py-3">
-    © 2020 Dream Big Cambodia
-  </div>
-{% load static %}
-<script src="{% static 'scripts/jquery-3.2.1.js' %}"></script>
-<script src="{% static 'scripts/popper.js' %}"></script>
-<script src="{% static 'scripts/bootstrap.js' %}"></script>
-<script>
+        {% endblock %}
+    </div>
+    <div class="footer-copyright text-center py-3">
+        © 2020 Dream Big Cambodia
+    </div>
 
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(filename);
-});
+    {% load static %}
+    <script src="{% static 'scripts/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'scripts/popper.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.js' %}"></script>
+    <script>
 
-function check_male(){
-    document.getElementById("female").checked = false;
-}
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(filename);
+    });
+    </script>
+    <script>
 
-function check_female(){
-    document.getElementById("male").checked = false;
-}
+    function check_male(){
+        document.getElementById("female").checked = false;
+    }
 
-var seconds = 5;
+    function check_female(){
+        document.getElementById("male").checked = false;
+    }
 
-function countdown() {
-    seconds = seconds - 1;
-    if (seconds < 0) {
-        window.location = "http://127.0.0.1:8000/student/";
-    } else {
-        // Update remaining seconds
-        document.getElementById("countdown").innerHTML = seconds;
-        // Count down using javascript
-        window.setTimeout("countdown()", 1000);
-    } }
-countdown();
+    var seconds = 5;
 
-}
-</script>
+    function countdown() {
+        seconds = seconds - 1;
+        if (seconds < 0) {
+            window.location = "http://127.0.0.1:8000/student/";
+        } else {
+            // Update remaining seconds
+            document.getElementById("countdown").innerHTML = seconds;
+            // Count down using javascript
+            window.setTimeout("countdown()", 1000);
+        } }
+    countdown();
+
+    </script>
 </body>
 </html>

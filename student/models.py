@@ -10,7 +10,7 @@ class Student(models.Model):
     school = models.IntegerField(blank=0)
     grade = models.IntegerField(blank=0)
     siblings = models.CharField(max_length=100)
-    picture = models.ImageField(upload_to='student_pictures', blank='True')
+    picture = models.ImageField(upload_to='media/', default='')
     notes = models.CharField(max_length=1000)
     createdAt = models.DateTimeField(default='1900-01-01 00:00:00')
     modifiedAt = models.DateTimeField(default='1900-01-01 00:00:00')

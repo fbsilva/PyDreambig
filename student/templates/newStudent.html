@@ -4,15 +4,16 @@
 
 <h2>Add a new student</h2>
 
-<form method="post" action="/student/add" enctype="multipart/form-data">
+<form name="new_student" method="post" action="/student/add" onsubmit="return validateForm()" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <label>Student Name / ឈ្មោះ​របស់​និស្សិត</label>
-        <input type="text" class="form-control" name= "studentName" id="studentName" placeholder="Makara">
+        <input type="text" class="form-control" name= "studentName" id="studentName" placeholder="Makara" autofocus required>
+        <div class="invalid-feedback">You need to insert the student name before save!</div>
     </div>
     <div class="form-group">
         <label>Select the Class</label>
-        <select class="form-control" name="classOption">
+        <select class="form-control" name="classOption" required >
             <option selected>Select a class for the student</option>
             {% for level in levels %}
             <option value="{{level.id}}">{{level.id}}) {{level.level}} - {{level.period}}</option>
@@ -33,7 +34,7 @@
     </div>
     <div class="form-group">
         <label class="col-2 col-form-label">Birth Date</label>
-        <input class="form-control" type="date" value="2011-08-19" id="birthDate" name="birthdate">
+        <input class="form-control" required type="date" value="2011-08-19" id="birthDate" name="birthdate">
     </div>
     <div class="form-group">
         <label>Select the Grade</label>
@@ -69,12 +70,12 @@
         <p>Student picture:</p>
         <div class="custom-file mb-3">
             <input type="file" class="custom-file-input" id="pictureFile" name="pictureFile">
-            <label class="custom-file-label" for="pictureFile">Upload a picture</label>
+            <label class="custom-file-label" for="pictureFile" >Upload a picture</label>
         </div>
     </div>
     <div class="form-group">
         <label>Created By</label>
-        <input type="text" class="form-control" id="createdBy" name="createdBy" placeholder="Name of the volunteer who is creating this student">
+        <input type="text" class="form-control" id="createdBy" name="createdBy" required placeholder="Name of the volunteer who is creating this student">
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">

@@ -4,6 +4,7 @@ from datetime import date, datetime
 from django.shortcuts import render
 from .models import Student, Levels, School, Grade
 from django.core.files.storage import FileSystemStorage
+from pydreambig.settings import MEDIA_ROOT, MEDIA_URL
 
 
 def levels_to_the_header():
@@ -51,7 +52,7 @@ def new_student(request):
 
 
 def add_student(request):
-    try:
+    #try:
         levels_header = levels_to_the_header()
         if request.method == 'POST':
             student_name = request.POST['studentName']
@@ -64,19 +65,17 @@ def add_student(request):
             lives_in = request.POST['livesIn']
             siblings = request.POST['siblings']
             student_notes = request.POST['studentNotes']
-            created_by = request.POST.get('createdBy','admin')
-
+            created_by = request.POST.get('createdBy', 'admin')
+            picture_path = request.FILES['pictureFile']
             if gender_male == 'on':
                 gender = 'Male'
             elif gender_female == 'on':
                 gender = 'Female'
             else:
                 gender = 'Unknown'
-            picture_path = ''
-            if len(request.FILES['pictureFile']) != 0:
-                picture_path = request.FILES['pictureFile']
-                fs = FileSystemStorage()
-                fs.save(picture_path.name, picture_path)
+
+            fs = FileSystemStorage()
+            fs.save(picture_path.name, picture_path)
 
             student_data = Student(name=student_name, level_id=class_option, birthDate=birth_date, livesIn=lives_in,
                                    school=public_school, grade=grade_option, siblings=siblings,
@@ -88,9 +87,9 @@ def add_student(request):
         else:
             message = 'Something gone wrong. Try again!'
             return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
-    except:
-        message = 'Something gone wrong. Try again!'
-        return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
+    #except:
+    #    message = 'Something gone wrong. Try again!'
+    #    return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
 
 
 def edit_student(request):
@@ -101,8 +100,8 @@ def edit_student(request):
             student.name = request.POST['studentName']
             student.level_id = request.POST['classOption']
             student.birthDate = request.POST.get('birthDate', '2010-04-15')
-            student.grade = request.POST['gradeOption']
-            student.school = request.POST['publicSchool']
+            student.grade = request.POST.get('gradeOption', 13)
+            student.school = request.POST.get('publicSchool', 7)
             student.livesIn = request.POST['livesIn']
             student.siblings = request.POST['siblings']
             student.notes = request.POST['studentNotes']
@@ -132,6 +131,25 @@ def edit_student(request):
             message = 'Something gone wrong. Try again!'
             return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
 
+    #except:
+    #    message = 'Something gone wrong. Try again!'
+    #    return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
+
+
+def student_class(request, levelId):
+    #try:
+    context = {levelId: int(levelId)}
+    students = Student.objects.filter(level_id=int(levelId))
+    levels_header = levels_to_the_header()
+    level_aux = Levels.objects.get(id=int(levelId))
+    level_desc = level_aux.level + ' - ' + level_aux.period
+    for student in students:
+        student.age = years_old(student.birthDate)
+        level_description = Levels.objects.get(id=student.level_id)
+        student.level_description = level_description.level
+
+    return render(request, 'studentsByClass.html', {'students': students, 'levels_header': levels_header,
+                                                    'level_desc': level_desc}, context)
     #except:
     #    message = 'Something gone wrong. Try again!'
     #    return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})

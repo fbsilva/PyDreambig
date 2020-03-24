@@ -4,8 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-
+    <title>Dream Big Cambodia</title>
     {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     <link href="{% static 'css/studentStyle.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -27,7 +28,7 @@
         </div>
         <div id="links">
             {% for level in levels_header %}
-            <a href="url">{{level.level}} - {{level.period}}</a>
+            <a href="/student/student_class/{{level.id}}">{{level.level}} - {{level.period}}</a>
             {% endfor %}
         </div>
     </div>
@@ -37,7 +38,9 @@
 
     {% endblock %}
 </div>
-
+<div class="footer-copyright text-center py-3">
+    © 2020 Dream Big Cambodia
+  </div>
 {% load static %}
 <script src="{% static 'scripts/jquery-3.2.1.js' %}"></script>
 <script src="{% static 'scripts/popper.js' %}"></script>
@@ -46,7 +49,7 @@
 
 $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  $(this).siblings(".custom-file-label").addClass("selected").html(filename);
 });
 
 function check_male(){
@@ -70,6 +73,8 @@ function countdown() {
         window.setTimeout("countdown()", 1000);
     } }
 countdown();
+
+}
 </script>
 </body>
 </html>

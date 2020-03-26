@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from datetime import date, datetime
 from django.shortcuts import render
 from .models import Student, Levels, School, Grade
 from django.core.files.storage import FileSystemStorage
-from pydreambig.settings import MEDIA_ROOT, MEDIA_URL
 
 
 def levels_to_the_header():
@@ -25,14 +24,18 @@ def years_old(birth_date_aux):
 
 
 def index(request):
+    # TODO delete index.html
     try:
-        students = Student.objects.filter(deleted=False)
+        students = Student.objects.all()
         levels_header = levels_to_the_header()
+        level_desc = 'All Students'
         for student in students:
             student.age = years_old(student.birthDate)
             level_description = Levels.objects.get(id=student.level_id)
             student.level_description = level_description.level
-        return render(request, 'index.html', {'students': students, 'levels_header': levels_header})
+
+        return render(request, 'studentsByClass.html', {'students': students, 'levels_header': levels_header,
+                                                        'level_desc': level_desc})
     except:
         message = 'Something gone wrong. Try again!'
         return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
@@ -53,6 +56,7 @@ def new_student(request):
 
 def add_student(request):
     #try:
+        context = {}
         levels_header = levels_to_the_header()
         if request.method == 'POST':
             student_name = request.POST['studentName']
@@ -75,12 +79,17 @@ def add_student(request):
                 gender = 'Unknown'
 
             fs = FileSystemStorage()
-            fs.save(picture_path.name, picture_path)
+            name = fs.save(picture_path.name, picture_path)
+            print(picture_path.name)
+            print(picture_path)
+
+            context['url'] = fs.url(name)
 
             student_data = Student(name=student_name, level_id=class_option, birthDate=birth_date, livesIn=lives_in,
                                    school=public_school, grade=grade_option, siblings=siblings,
-                                   picture=picture_path.name, notes=student_notes, createdAt=datetime.now(),
+                                   picture=name, notes=student_notes, createdAt=datetime.now(),
                                    modifiedAt=datetime.now(), createdBy=created_by, gender=gender)
+
             student_data.save()
             message = 'The student was created successfully :)'
             return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
@@ -118,7 +127,7 @@ def edit_student(request):
 
             # TODO change the name of the file imported to a guid to be sure that picture's name never repeats
 
-            if len(request.FILES['pictureFile']) != 0:
+            if request.POST['pictureFile']:
                 picture_path = request.FILES['pictureFile']
                 fs = FileSystemStorage()
                 fs.save(picture_path.name, picture_path)

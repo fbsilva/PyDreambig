@@ -4,8 +4,15 @@
     <list default="true" id="8e76b224-da1e-40a4-a76e-2effb351eaa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydreambig/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydreambig/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/css/studentStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/studentStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/static/images/settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/images/settings.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/templates/newStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/newStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +100,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1584691377431" />
+    <state x="481" y="80" key="RollbackChangesDialog" timestamp="1585192542361">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="481" y="80" key="RollbackChangesDialog/0.0.1366.738@0.0.1366.738" timestamp="1585192542361" />
     <state x="184" y="11" key="SettingsEditor" timestamp="1584706993011">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

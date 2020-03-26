@@ -14,4 +14,7 @@ urlpatterns = [
     path('successful', views.successful),
     path('edit/<int:student_id>/', views.student_info, name='edit'),
     path('student_class/<int:levelId>/', views.student_class, name='student_class')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

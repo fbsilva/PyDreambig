@@ -19,11 +19,25 @@
 </head>
 <body>
     <div id="wrapperHeader">
-        <div>
-            <div id="header">
+        <div class="row-corner">
+            <div id="header" class="col-11">
                 {% load static %}
                 <a href="/student/">
-                    <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/>
+                    <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/></a>
+            </div>
+            <div id="header" class="col-1">
+                <div class="row-corner">
+                    <div class="row-corner">
+                        {% load static %}
+                        <a href="/student/">
+                            <img id="icon" alt="Settings" src="{% static 'images/settings.png' %}"/></a>
+                    </div>
+                    <div class="row-corner">
+                        {% load static %}
+                        <a href="/student/">
+                            <img id="icon" alt="Help" src="{% static 'images/help.png' %}"/></a>
+                    </div>
+                </div>
             </div>
             <div id="links">
                 {% for level in levels_header %}

@@ -18,55 +18,82 @@
 
 </head>
 <body>
-    <div id="wrapperHeader">
-        <div class="row-corner">
-            <div id="header" class="col-11">
-                {% load static %}
-                <a href="/student/">
-                    <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/></a>
-            </div>
-            <div id="header" class="col-1">
+<div id="wrapperHeader">
+    <div class="row-corner">
+        <div id="header" class="col-11">
+            {% load static %}
+            <a href="/student/">
+                <img alt="Dream Big Cambodia " src="{% static 'images/dreambig_logo.png' %}"/></a>
+        </div>
+        <div id="header" class="col-1">
+            <div class="row-corner">
                 <div class="row-corner">
-                    <div class="row-corner">
-                        {% load static %}
-                        <a href="/student/">
-                            <img id="icon" alt="Settings" src="{% static 'images/settings.png' %}"/></a>
-                    </div>
-                    <div class="row-corner">
-                        {% load static %}
-                        <a href="/student/">
-                            <img id="icon" alt="Help" src="{% static 'images/help.png' %}"/></a>
-                    </div>
+                    {% load static %}
+                    <a href="/student/settings">
+                        <img id="icon" alt="Settings" src="{% static 'images/settings.png' %}"/></a>
+                </div>
+                <div class="row-corner">
+                    {% load static %}
+                    <a href="/student/information">
+                        <img id="icon" alt="Help" src="{% static 'images/help.png' %}"/></a>
                 </div>
             </div>
-            <div id="links">
-                {% for level in levels_header %}
-                <a href="/student/student_class/{{level.id}}">{{level.level}} - {{level.period}}</a>
-                {% endfor %}
-            </div>
+        </div>
+        <div id="links">
+            {% for level in levels_header %}
+            <a href="/student/student_class/{{level.id}}">{{level.level}} - {{level.period}}</a>
+            {% endfor %}
         </div>
     </div>
-    <div id="info">
-        {% block content %}
+</div>
+<div id="info">
+    {% block content %}
 
-        {% endblock %}
-    </div>
-    <div class="footer-copyright text-center py-3">
-        © 2020 Dream Big Cambodia
-    </div>
+    {% endblock %}
+</div>
+<div class="footer-copyright text-center py-3">
+    <p id="copyright"></p>
+</div>
 
-    {% load static %}
-    <script src="{% static 'scripts/jquery-3.2.1.js' %}"></script>
-    <script src="{% static 'scripts/popper.js' %}"></script>
-    <script src="{% static 'scripts/bootstrap.js' %}"></script>
-    <script>
+{% load static %}
+<script src="{% static 'scripts/jquery-3.2.1.js' %}"></script>
+<script src="{% static 'scripts/popper.js' %}"></script>
+<script src="{% static 'scripts/bootstrap.js' %}"></script>
+<script>
 
     $(".custom-file-input").on("change", function() {
       var fileName = $(this).val().split("\\").pop();
       $(this).siblings(".custom-file-label").addClass("selected").html(filename);
     });
-    </script>
-    <script>
+
+</script>
+<script>
+
+    function getYear() {
+        var d = new Date();
+        var n = d.getFullYear();
+        document.getElementById("copyright").innerHTML = "© " + n + " Dream Big Cambodia";
+    }
+
+    getYear();
+
+    function public_school_tab(){
+        document.getElementById("li_public_school").classList.add('active');
+        document.getElementById("li_grades").classList.remove('active');
+        document.getElementById("li_levels").classList.remove('active');
+    }
+
+    function grades_tab(){
+        document.getElementById("li_public_school").classList.remove('active');
+        document.getElementById("li_grades").classList.add('active');
+        document.getElementById("li_levels").classList.remove('active');
+    }
+
+    function levels_tab(){
+        document.getElementById("li_public_school").classList.remove('active');
+        document.getElementById("li_grades").classList.remove('active');
+        document.getElementById("li_levels").classList.add('active');
+    }
 
     function check_male(){
         document.getElementById("female").checked = false;
@@ -90,6 +117,7 @@
         } }
     countdown();
 
-    </script>
+
+</script>
 </body>
 </html>

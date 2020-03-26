@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Settings</h1>
+<div>
+    <ul class="nav nav-tabs">
+        <li id="li_public_school" class="nav-link active" >
+            <a id="separator" href="#tab1" data-toggle="tab" onclick="public_school_tab()">Public Schools</a>
+        </li>
+        <li id="li_grades" class="nav-link" >
+            <a id="separator" href="#tab2" onclick="grades_tab()" data-toggle="tab">Public Schools' Grades</a>
+        </li>
+        <li id="li_levels" class="nav-link" >
+            <a id="separator" href="#tab3" onclick="levels_tab()" data-toggle="tab">Cristina School's Levels</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/student/settings/public_school">
+                        {% load static %}
+                        <img alt="plus" class="card-img-first" src="{% static 'images/plus.png' %}"/>
+                        Add a new public school</a></li>
+                {% for school in publicschool %}
+                <li class="list-group-item">{{school.name}}
+                    <a id="list" href="/student/publicschool/{{school.id}}">
+                        <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
+                        Edit</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tab-pane" id="tab2">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/student/settings/grade">
+                        {% load static %}
+                        <img alt="plus" class="card-img-first" src="{% static 'images/plus.png' %}"/>
+                        Add a new public school's grade</a></li>
+                {% for grade in grades %}
+                <li class="list-group-item">{{grade.name}}
+                    <a id="list" href="/student/grade/{{school.id}}">
+                        <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
+                        Edit</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/student/settings/level">
+                        {% load static %}
+                        <img alt="plus" class="card-img-first" src="{% static 'images/plus.png' %}"/>
+                        Add a new level</a></li>
+                {% for level in levels %}
+                <li class="list-group-item">{{level.level}} - {{level.period}}
+                    <a id="list" href="/student/level/{{school.id}}">
+                        <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
+                        Edit</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

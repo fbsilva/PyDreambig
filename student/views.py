@@ -165,7 +165,17 @@ def student_class(request, levelId):
 
 
 def information(request):
-    return HttpResponse('Information')
+    levels_header = levels_to_the_header()
+    return render(request, 'information.html', {'levels_header': levels_header})
+
+
+def settings(request):
+    levels_header = levels_to_the_header()
+    levels = Levels.objects.all()
+    school = School.objects.all()
+    grades = Grade.objects.all()
+    return render(request, 'settings.html', {'levels_header': levels_header, 'publicschool': school, 'levels': levels,
+                                             'grades': grades})
 
 
 def successful(request):
@@ -188,3 +198,42 @@ def student_info(request, student_id):
     except:
         message = 'Something gone wrong. Try again!'
         return render(request, 'successful.html', {'levels_header': levels_header, 'message': message})
+
+
+def public_school_edit(request, school_id):
+    context = {school_id: int(school_id)}
+    levels_header = levels_to_the_header()
+    school = School.objects.get(id=int(school_id))
+    return render(request, 'publicSchool.html', {'school': school, 'levels_header': levels_header}, context)
+
+
+def public_school_add(request):
+    levels_header = levels_to_the_header()
+    description = 'New Public School'
+    return render(request, 'publicSchool.html', {'levels_header': levels_header, 'description': description})
+
+
+def grade_edit(request, grade_id):
+    context = {grade_id: int(grade_id)}
+    levels_header = levels_to_the_header()
+    grade = Grade.objects.get(id=int(grade_id))
+    return render(request, 'grade.html', {'grade': grade, 'levels_header': levels_header}, context)
+
+
+def grade_add(request):
+    levels_header = levels_to_the_header()
+    description = "New Public School's Grade"
+    return render(request, 'level.html', {'levels_header': levels_header, 'description': description})
+
+
+def level_edit(request, level_id):
+    context = {level_id: int(level_id)}
+    levels_header = levels_to_the_header()
+    level = Levels.objects.get(id=int(level_id))
+    return render(request, 'level.html', {'level': level, 'levels_header': levels_header}, context)
+
+
+def level_add(request):
+    levels_header = levels_to_the_header()
+    description = "New Cristina School's Level"
+    return render(request, 'level.html', {'levels_header': levels_header, 'description': description})

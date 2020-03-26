@@ -761,6 +761,7 @@ pre code {
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
+    margin-top: 15px
 }
 
 .row-cols-1>* {
@@ -5037,6 +5038,7 @@ input[type="button"].btn-block {
     word-wrap: break-word;
     background-color: #fff;
     border-radius: 0.0;
+    padding-top: 15px;
 }
 
 .card>hr {

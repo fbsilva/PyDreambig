@@ -60,3 +60,50 @@ div#info {
     text-align: center;
     padding: 50px;
 }
+
+div#info a#separator {
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+div#info ul {
+    background-color: #d3d3d3;
+    text-align: left;
+    color: #000000;
+}
+
+div#info ul a {
+    color: blue;
+    text-align: right;
+}
+
+div#info img {
+    width: 100%;
+    height: 100%;
+    max-width: 18px;
+    max-height: 18px;
+    background-color: #ffffff;
+}
+
+div#info img#studentPicture {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 250px;
+    background-color: #ffffff;
+}
+
+div#info img#plus {
+    width: 100%;
+    height: 100%;
+    max-width: 140px;
+    max-height: 140px;
+    background-color: #ffffff;
+}
+
+div#info ul a#list {
+    color: blue;
+    text-align: right;
+    float: right;
+}

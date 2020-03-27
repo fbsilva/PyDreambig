@@ -5,6 +5,12 @@ from django.shortcuts import render
 from .models import Student, Levels, School, Grade
 from django.core.files.storage import FileSystemStorage
 
+# TODO: Everytime some student change the level we need to update one table that allow us to know how long the student was in the same level.
+# TODO: Create a page to attendance list where we will see all the students from a class and we'll be able to check if they are in the class
+#TODO: We need to be able to change the attendance list
+#TODO: Create graphs where we will see how many students coming for class and in general everyday
+#TODO: Update the file to the folder
+
 
 def levels_to_the_header():
     levels = Levels.objects.all().order_by('id')
@@ -24,7 +30,6 @@ def years_old(birth_date_aux):
 
 
 def index(request):
-    # TODO delete index.html
     try:
         students = Student.objects.all()
         levels_header = levels_to_the_header()

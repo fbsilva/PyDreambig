@@ -25,7 +25,7 @@
                         Add a new public school</a></li>
                 {% for school in publicschool %}
                 <li class="list-group-item">{{school.name}}
-                    <a id="list" href="/student/publicschool/{{school.id}}">
+                    <a id="list" href="/student/settings/public_school/{{school.id}}">
                         <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
                         Edit</a>
                 </li>
@@ -41,7 +41,7 @@
                         Add a new public school's grade</a></li>
                 {% for grade in grades %}
                 <li class="list-group-item">{{grade.name}}
-                    <a id="list" href="/student/grade/{{school.id}}">
+                    <a id="list" href="/student/settings/grade/{{grade.id}}">
                         <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
                         Edit</a>
                 </li>
@@ -57,7 +57,7 @@
                         Add a new level</a></li>
                 {% for level in levels %}
                 <li class="list-group-item">{{level.level}} - {{level.period}}
-                    <a id="list" href="/student/level/{{school.id}}">
+                    <a id="list" href="/student/settings/level/{{level.id}}">
                         <img alt="edit" class="card-img-first" src="{% static 'images/edit.png' %}"/>
                         Edit</a></li>
                 {% endfor %}

@@ -5,20 +5,28 @@
 
 <h2>{{description}}</h2>
 
-<form name="grade" method="post" enctype="multipart/form-data">
+<form name="grade" method="post" action="/student/grade_save" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <label>Public School Grade</label>
-        <input type="text" class="form-control" name= "grade" id="grade" placeholder="Year 1" autofocus required>
+        <input type="hidden" class="form-control" name= "gradeId" id="gradeId" value="{{grade.id}}" readonly >
+        <input type="text" class="form-control" name= "grade" id="grade" placeholder="Year 1" value="{{grade.name}}" autofocus required>
     </div>
     <div class="form-group">
         <label>Created By</label>
-        <input type="text" class="form-control" name= "createdBy" id="createdBy" placeholder="John Doe" required>
+        <input type="text" class="form-control" name= "createdBy" id="createdBy" placeholder="John Doe" value="{{grade.createdBy}}" required>
     </div>
+    {% if new %}
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">
         <input class="btn btn-primary" type="reset" value="Reset">
     </div>
+    {% else %}
+    <div class="form-group">
+        <input class="btn btn-primary" onclick="history.back(-1)" value="Go Back">
+        <input class="btn btn-primary" type="submit" value="Save Changes">
+    </div>
+    {% endif %}
 </form>
 
 {% endblock %}

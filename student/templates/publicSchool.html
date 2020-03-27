@@ -5,20 +5,42 @@
 
 <h2>{{description}}</h2>
 
-<form name="public_school" method="post" enctype="multipart/form-data">
+<form name="public_school" method="post" action="/student/school_save" enctype="multipart/form-data">
     {% csrf_token %}
+
     <div class="form-group">
         <label>Public School Name</label>
-        <input type="text" class="form-control" name= "schoolName" id="schoolName" placeholder="Bakong High School" autofocus required>
+        <input type="hidden" class="form-control" name="schoolId" id="schoolId" value="{{school.id}}" readonly>
+        <input type="text" class="form-control" name="schoolName" id="schoolName" value="{{school.name}}"
+               placeholder="Bakong High School" autofocus required>
     </div>
+    {% if school.active or new %}
+    <div class="form-group custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="active" name="active" checked>
+        <label class="custom-control-label" for="active">School in operation?</label>
+    </div>
+    {% else %}
+    <div class="form-group custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="active" name="active">
+        <label class="custom-control-label" for="active">School in operation?</label>
+    </div>
+    {% endif %}
     <div class="form-group">
-        <label>Created By</label>
-        <input type="text" class="form-control" name= "createdBy" id="createdBy" placeholder="John Doe" required>
+        <label>Created By </label>
+        <input type="text" class="form-control" name="createdBy" id="createdBy" value="{{school.createdBy}}"
+               placeholder="John Doe" required>
     </div>
+    {% if new %}
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">
         <input class="btn btn-primary" type="reset" value="Reset">
     </div>
+    {% else %}
+    <div class="form-group">
+        <input class="btn btn-primary" onclick="history.back(-1)" value="Go Back">
+        <input class="btn btn-primary" type="submit" value="Save Changes">
+    </div>
+    {% endif %}
 </form>
 
 {% endblock %}

@@ -32,7 +32,7 @@ class School(models.Model):
     name = models.CharField(max_length=50)
     createdAt = models.DateTimeField(default='1900-01-01 00:00:00')
     modifiedAt = models.DateTimeField(default='1900-01-01 00:00:00')
-    deleted = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
     createdBy = models.CharField(max_length=35, default='admin')
 
 

@@ -5,32 +5,60 @@
 
 <h2>{{description}}</h2>
 
-<form name="grade" method="post" enctype="multipart/form-data">
+<form name="grade" method="post" action="/student/level_save" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <label>Level</label>
-        <input type="text" class="form-control" name= "level" id="level" placeholder="ABC 1" autofocus required>
+        <input type="hidden" class="form-control" name="levelId" id="levelId" value="{{level.id}}" readonly>
+        <input type="text" class="form-control" name="level" id="level" value="{{level.level}}" placeholder="ABC 1"
+               autofocus required>
     </div>
     <div class="form-group">
         <label>Select the Period</label>
         <select class="form-control" name="period" id="period">
+            {% if level.period == 'Morning' %}
             <option value="Morning" selected>Morning</option>
+            {% else %}
+            <option value="Morning">Morning</option>
+            {% endif %}
+            {% if level.period == 'Afternoon' %}
             <option value="Afternoon" selected>Afternoon</option>
+            {% else %}
+            <option value="Afternoon">Afternoon</option>
+            {% endif %}
+            {% if level.period == 'Evening' %}
             <option value="Evening" selected>Evening</option>
+            {% else %}
+            <option value="Evening">Evening</option>
+            {% endif %}
         </select>
     </div>
+    {% if level.status or new %}
     <div class="form-group custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
-      <label class="custom-control-label" for="switch1">Level working?</label>
+        <input type="checkbox" class="custom-control-input" id="active" name="active" checked>
+        <label class="custom-control-label" for="active">Level in operation?</label>
     </div>
+    {% else %}
+    <div class="form-group custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="active" name="active">
+        <label class="custom-control-label" for="active">Level in operation?</label>
+    </div>
+    {% endif %}
     <div class="form-group">
         <label>Created By</label>
-        <input type="text" class="form-control" name= "createdBy" id="createdBy" placeholder="John Doe" required>
+        <input type="text" class="form-control" name="createdBy" id="createdBy" value="{{level.createdBy}}" placeholder="John Doe" required>
     </div>
+    {% if new %}
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">
         <input class="btn btn-primary" type="reset" value="Reset">
     </div>
+    {% else %}
+    <div class="form-group">
+        <input class="btn btn-primary" onclick="history.back(-1)" value="Go Back">
+        <input class="btn btn-primary" type="submit" value="Save Changes">
+    </div>
+    {% endif %}
 </form>
 
 {% endblock %}

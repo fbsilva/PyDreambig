@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e76b224-da1e-40a4-a76e-2effb351eaa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/student/templates/grade.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/templates/information.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/templates/level.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/templates/publicSchool.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/templates/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/static/css/studentStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/student/static/css/studentStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/templates/studentsByClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/studentsByClass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/grade.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/grade.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/information.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/information.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/level.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/level.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/publicSchool.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/publicSchool.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/student/templates/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
     </list>
@@ -42,6 +39,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -114,10 +112,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1584953361776" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1585021936627">
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1585279978365">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1585021936627" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1585279978365" />
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585207833497">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

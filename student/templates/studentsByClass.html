@@ -4,32 +4,50 @@
 {% block content %}
 
 
-<h1>{{level_desc}}</h1>
+<h1>{{level_desc}}
+    {% load static %}
+    <img  alt="graph" class="card-img-first" src="{% static 'images/graph.png' %}">
+    {% if level_desc != 'All Students' %}
+    <img  alt="historic" class="card-img-first" src="{% static 'images/historic.png' %}">
+    {% endif %}
+</h1>
 
 <div class="row">
+    {% if attendance %}
     <div class="col">
         <div class="card-first" style="width: 18rem;">
             <a href="/student/new">
-            {% load static %}
-            <img id="plus" alt="plus" class="card-img-first" src="{% static 'images/plus.png' %}">
+                {% load static %}
+                <img id="plus" alt="attendance" class="card-img-first" src="{% static 'images/attendance.png' %}"></a>
+            <div class="card-body">
+                <a class="btn btn-primary" href="/student/new">Attendance List</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="col">
+        <div class="card-first" style="width: 18rem;">
+            <a href="/student/new">
+                {% load static %}
+                <img id="plus" alt="plus" class="card-img-first" src="{% static 'images/plus.png' %}"></a>
             <div class="card-body">
                 <a class="btn btn-primary" href="/student/new">New Student</a>
             </div>
         </div>
     </div>
     {% for student in students %}
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                {% load static %}
-                <img id="studentPicture" alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{student.name}}</h5>
-                    <p class="card-text">{{student.birthdate}} ({{student.age}} years old)</p>
-                    <p class="card-text">{{student.level_description}}</p>
-                    <a class="btn btn-primary" href="/student/edit/{{student.id}}">Student File</a>
-                </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            {% load static %}
+            <img id="studentPicture" alt="student" class="card-img-top" src="{% static 'media/' %}{{student.picture}}">
+            <div class="card-body">
+                <h5 class="card-title">{{student.name}}</h5>
+                <p class="card-text">{{student.birthdate}} ({{student.age}} years old)</p>
+                <p class="card-text">{{student.level_description}}</p>
+                <a class="btn btn-primary" href="/student/edit/{{student.id}}">Student File</a>
             </div>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

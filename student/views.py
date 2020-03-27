@@ -35,7 +35,7 @@ def index(request):
             student.level_description = level_description.level
 
         return render(request, 'studentsByClass.html', {'students': students, 'levels_header': levels_header,
-                                                        'level_desc': level_desc})
+                                                        'level_desc': level_desc, 'attendenca': False})
     except:
         message = 'Something gone wrong. Try again!'
         return successful(request=request, message=message)
@@ -159,7 +159,7 @@ def student_class(request, levelId):
         student.level_description = level_description.level
 
     return render(request, 'studentsByClass.html', {'students': students, 'levels_header': levels_header,
-                                                    'level_desc': level_desc}, context)
+                                                    'level_desc': level_desc, 'attendance': True}, context)
     # except:
     #    message = 'Something gone wrong. Try again!'
     #    return successful(request=request, message=message)
